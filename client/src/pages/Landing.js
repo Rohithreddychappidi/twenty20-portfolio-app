@@ -13,8 +13,9 @@ function Landing() {
   const handleSubmit = async () => {
     try {
       const url = isLogin
-  ? "/api/auth/login"
-  : "/api/auth/register";
+  ? "https://twenty20-portfolio-app-spn6.vercel.app/api/auth/login"
+  : "https://twenty20-portfolio-app-spn6.vercel.app/api/auth/register";
+
 
 
       const res = await axios.post(url, { email, password });
