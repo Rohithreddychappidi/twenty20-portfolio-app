@@ -8,7 +8,7 @@ const app = express();
 // Connect DB
 connectDB();
 
-// ✅ CORS CONFIG (THIS FIXES YOUR ERROR)
+// ✅ CORS CONFIG (allow frontend domain)
 app.use(
   cors({
     origin: [
@@ -19,19 +19,20 @@ app.use(
   })
 );
 
-// Handle preflight
+// Handle preflight requests
 app.options("*", cors());
 
+// Body parser
 app.use(express.json());
 
 // Routes
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
+// Health check
 app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-app.listen(5000, () => {
-  console.log("Server running");
-});
+// ✅ IMPORTANT: EXPORT APP (NO app.listen FOR VERCEL)
+module.exports = app;
