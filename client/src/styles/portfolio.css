@@ -1,0 +1,121 @@
+/* ===== Global ===== */
+body {
+  margin: 0;
+  background-color: #f4f6f8;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+/* ===== Container ===== */
+.portfolio-container {
+  max-width: 920px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Header ===== */
+.header {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.header p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.links {
+  margin-top: 10px;
+}
+
+.links a {
+  margin-right: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Sections ===== */
+.section {
+  margin-bottom: 32px;
+}
+
+.section h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #0f172a;
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+}
+
+.section p {
+  font-size: 15px;
+  color: #374151;
+}
+
+.section ul {
+  padding-left: 20px;
+}
+
+.section li {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+/* ===== Project Cards ===== */
+.project-card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.project-card strong {
+  color: #111827;
+}
+
+/* ===== Button ===== */
+.logout-btn {
+  background: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #0f172a;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .portfolio-container {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .header h2 {
+    font-size: 22px;
+  }
+}
