@@ -5,25 +5,27 @@ require("dotenv").config();
 
 const app = express();
 
-// Connect DB
-connectDB();
-
-// ✅ CORS CONFIG (allow frontend domain)
+// CORS
 app.use(
   cors({
-    origin: [
-      "https://twenty20-portfolio-app-ao85.vercel.app"
-    ],
+    origin: ["https://twenty20-portfolio-app-ao85.vercel.app"],
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// Handle preflight requests
-app.options("*", cors());
-
-// Body parser
 app.use(express.json());
+
+// ✅ MongoDB connection (serverless-safe)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Database connection failed" });
+  }
+});
 
 // Routes
 const authRoutes = require("./routes/auth");
@@ -34,5 +36,5 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-// ✅ IMPORTANT: EXPORT APP (NO app.listen FOR VERCEL)
+// ✅ Export for Vercel
 module.exports = app;
